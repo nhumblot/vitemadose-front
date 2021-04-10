@@ -105,7 +105,7 @@ export class VmdRdvView extends LitElement {
                     </h2>
                 ` : html`
                     <h2 class="row align-items-center justify-content-center mb-5 h5">Aucun créneau de vaccination trouvé</h2>
-                    <p>Nous n’avons pas trouvé de <strong>rendez-vous de vaccination</strong> covid sur ces centres, nous vous recommandons toutefois de vérifier manuellement les rendez-vous de vaccination auprès des sites qui gèrent la réservation de créneau de vaccination. Pour ce faire, cliquez sur le bouton “vérifier le centre de vaccination”.</p>
+                    <p>Nous n’avons pas trouvé de <strong>rendez-vous de vaccination</strong> covid sur ces lieux, nous vous recommandons toutefois de vérifier manuellement les rendez-vous de vaccination auprès des sites qui gèrent la réservation de créneau de vaccination. Pour ce faire, cliquez sur le bouton “vérifier le lieu de vaccination”.</p>
                 `}
 
                 ${repeat(this.lieuxParDepartement?.lieuxDisponibles || [], (c => `${c.departement}||${c.nom}||${c.plateforme}`), (lieu) => {
@@ -118,7 +118,7 @@ export class VmdRdvView extends LitElement {
                 <h5 class="row align-items-center justify-content-center mb-5">
                     <i class="bi bi-calendar-x-fill text-black-50 me-2 fs-3 col-auto"></i>
                     <span class="col col-sm-auto text-black-50">
-                        Autres centres sans créneaux de vaccination détecté
+                        Autres lieux sans créneaux de vaccination détecté
                     </span>
                 </h5>
 
