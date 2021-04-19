@@ -1,6 +1,6 @@
 import { defineConfig } from 'vite'
 import autoprefixer = require('autoprefixer')
-
+import legacy from '@vitejs/plugin-legacy';
 
 // https://vitejs.dev/config/
 export default ({ command, mode }) => ({
@@ -13,5 +13,10 @@ export default ({ command, mode }) => ({
         autoprefixer()
       ]
     }
-  }
+  },
+  plugins: [
+      legacy({
+        targets: ['defaults']
+      })
+  ]
 });
