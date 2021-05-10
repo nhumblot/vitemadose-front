@@ -147,7 +147,7 @@ export class VmdAppointmentCardComponent extends LitElement {
                                 <div slot="content">
                                   <span class="fw-bold text-dark">${this.lieu.nom}</span>
                                   <br/>
-                                  <em>${this.lieu.metadata.address}</em>
+                                  <em>${this.renderAddress()}</em>
                                 </div>
                               </vmd-appointment-metadata>
                               <vmd-appointment-metadata class="mb-2" widthType="fit-to-content" icon="vmdicon-telephone-fill" .displayed="${!!this.lieu.metadata.phone_number}">
@@ -186,5 +186,14 @@ export class VmdAppointmentCardComponent extends LitElement {
     disconnectedCallback() {
         super.disconnectedCallback();
         // console.log("disconnected callback")
+    }
+
+    private renderAddress() {
+        if (this.lieu.location.latitude && this.lieu.location.longitude) {
+            return html`<a href="geo:${this.lieu.location.latitude},${this.lieu.location.longitude}"
+                           @click="${(e: Event) => e.stopImmediatePropagation()}"
+            >${this.lieu.metadata.address}</a>`
+        }
+        return this.lieu.metadata.address;
     }
 }
